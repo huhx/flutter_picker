@@ -32,8 +32,7 @@ class _RawPickerTestState extends State<RawPickerTest> {
     );
   }
 
-  Widget _buildCupertinoPicker(BuildContext context,
-      int i, int _length, Key? key) {
+  Widget _buildCupertinoPicker(BuildContext context, int i, int _length, Key? key) {
     return CupertinoPicker.builder(
       key: key,
       scrollController: FixedExtentScrollController(),

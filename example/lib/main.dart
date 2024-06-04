@@ -37,8 +37,7 @@ class _MyAppState extends State<MyApp> {
           brightness: dark ? Brightness.dark : Brightness.light,
           primaryTextTheme: TextTheme().apply(fontFamily: _fontFamily),
         ),
-        scrollBehavior: const MaterialScrollBehavior()
-            .copyWith(scrollbars: true, dragDevices: _kTouchLikeDeviceTypes),
+        scrollBehavior: const MaterialScrollBehavior().copyWith(scrollbars: true, dragDevices: _kTouchLikeDeviceTypes),
         localizationsDelegates: [
           PickerLocalizationsDelegate.delegate, // 如果要使用本地化，请添加此行，则可以显示中文按钮
           GlobalMaterialLocalizations.delegate,
@@ -86,8 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               icon: Icon(Icons.sunny_snowing)),
           IconButton(
-              onPressed: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (v) => RawPickerTest())),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (v) => RawPickerTest())),
               icon: Icon(Icons.add)),
         ],
       ),
@@ -204,14 +202,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   showPicker(BuildContext context) async {
     Picker picker = Picker(
-        adapter: PickerDataAdapter<String>(
-            pickerData: JsonDecoder().convert(PickerData)),
+        adapter: PickerDataAdapter<String>(pickerData: JsonDecoder().convert(PickerData)),
         changeToFirst: false,
         textAlign: TextAlign.left,
         textStyle: TextStyle(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.yellow
-                : Colors.blue,
+            color: Theme.of(context).brightness == Brightness.dark ? Colors.yellow : Colors.blue,
             fontFamily: _fontFamily),
         selectedTextStyle: TextStyle(color: Colors.red),
         columnPadding: const EdgeInsets.all(8.0),
@@ -224,8 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   showPickerModal(BuildContext context) async {
     final result = await Picker(
-        adapter: PickerDataAdapter<String>(
-            pickerData: JsonDecoder().convert(PickerData)),
+        adapter: PickerDataAdapter<String>(pickerData: JsonDecoder().convert(PickerData)),
         changeToFirst: true,
         hideHeader: false,
         selectedTextStyle: TextStyle(color: Colors.blue),
@@ -281,16 +275,13 @@ class _MyHomePageState extends State<MyHomePage> {
           PickerItem(text: Icon(Icons.access_time)),
           PickerItem(text: Icon(Icons.adjust)),
         ]),
-        PickerItem(
-            text: Icon(Icons.linear_scale),
-            value: Icons.linear_scale,
-            children: [
-              PickerItem(text: Icon(Icons.assistant_photo)),
-              PickerItem(text: Icon(Icons.account_balance)),
-              PickerItem(text: Icon(Icons.airline_seat_legroom_extra)),
-              PickerItem(text: Icon(Icons.airport_shuttle)),
-              PickerItem(text: Icon(Icons.settings_bluetooth)),
-            ]),
+        PickerItem(text: Icon(Icons.linear_scale), value: Icons.linear_scale, children: [
+          PickerItem(text: Icon(Icons.assistant_photo)),
+          PickerItem(text: Icon(Icons.account_balance)),
+          PickerItem(text: Icon(Icons.airline_seat_legroom_extra)),
+          PickerItem(text: Icon(Icons.airport_shuttle)),
+          PickerItem(text: Icon(Icons.settings_bluetooth)),
+        ]),
         PickerItem(text: Icon(Icons.close), value: Icons.close),
       ]),
       title: Text("Select Icon"),
@@ -304,8 +295,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   showPickerDialog(BuildContext context) {
     Picker(
-        adapter: PickerDataAdapter<String>(
-            pickerData: JsonDecoder().convert(PickerData)),
+        adapter: PickerDataAdapter<String>(pickerData: JsonDecoder().convert(PickerData)),
         hideHeader: true,
         title: Text("Select Data"),
         selectedTextStyle: TextStyle(color: Colors.blue),
@@ -339,11 +329,7 @@ class _MyHomePageState extends State<MyHomePage> {
   showPickerNumber(BuildContext context) {
     Picker(
         adapter: NumberPickerAdapter(data: [
-          NumberPickerColumn(
-              begin: 0,
-              end: 999,
-              postfix: Text("\$"),
-              suffix: Icon(Icons.insert_emoticon)),
+          NumberPickerColumn(begin: 0, end: 999, postfix: Text("\$"), suffix: Icon(Icons.insert_emoticon)),
           NumberPickerColumn(begin: 200, end: 100, jump: -10),
         ]),
         delimiter: [
@@ -466,8 +452,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Picker ps = Picker(
         hideHeader: true,
-        adapter: DateTimePickerAdapter(
-            type: PickerDateTimeType.kYMD, isNumberMonth: true),
+        adapter: DateTimePickerAdapter(type: PickerDateTimeType.kYMD, isNumberMonth: true),
         onConfirm: (Picker picker, List value) {
           print((picker.adapter as DateTimePickerAdapter).value);
         });
@@ -504,12 +489,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text("Begin:"),
-                  ps.makePicker(),
-                  Text("End:"),
-                  pe.makePicker()
-                ],
+                children: <Widget>[Text("Begin:"), ps.makePicker(), Text("End:"), pe.makePicker()],
               ),
             ),
           );
@@ -545,15 +525,9 @@ class _MyHomePageState extends State<MyHomePage> {
   showPickerDateTimeRoundBg(BuildContext context) {
     var picker = Picker(
         backgroundColor: Colors.transparent,
-        headerDecoration: BoxDecoration(
-            border:
-                Border(bottom: BorderSide(color: Colors.black12, width: 0.5))),
+        headerDecoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black12, width: 0.5))),
         adapter: DateTimePickerAdapter(
-            type: PickerDateTimeType.kMDYHM,
-            isNumberMonth: true,
-            yearSuffix: "年",
-            monthSuffix: "月",
-            daySuffix: "日"),
+            type: PickerDateTimeType.kMDYHM, isNumberMonth: true, yearSuffix: "年", monthSuffix: "月", daySuffix: "日"),
         delimiter: [
           PickerDelimiter(
               column: 3,
@@ -576,12 +550,10 @@ class _MyHomePageState extends State<MyHomePage> {
         onSelect: (Picker picker, int index, List<int> selected) {
           showMsg(picker.adapter.toString());
         });
-    picker.showModal(context, backgroundColor: Colors.transparent,
-        builder: (context, view) {
+    picker.showModal(context, backgroundColor: Colors.transparent, builder: (context, view) {
       return Material(
           // color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
           child: Container(
             padding: const EdgeInsets.only(top: 4),
             child: view,
@@ -643,9 +615,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: itemExtent,
                   color: selectColor,
                   alignment: Alignment.center,
-                  child: Text(':',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: txtColor)),
+                  child: Text(':', style: TextStyle(fontWeight: FontWeight.bold, color: txtColor)),
                 ),
               )),
           PickerDelimiter(column: 4, child: delimiterChild),
@@ -664,8 +634,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(top: 0, left: 0, right: 0),
             decoration: BoxDecoration(
               color: bgColor,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
             ),
             child: view,
           ));
@@ -673,10 +642,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   showPickerDurationSelect(BuildContext context) {
-    final range = <DateTime?>[
-      DateTime(0, 1, 1, 8, 30),
-      DateTime(0, 1, 1, 14, 30)
-    ];
+    final range = <DateTime?>[DateTime(0, 1, 1, 8, 30), DateTime(0, 1, 1, 14, 30)];
     final p1 = Picker(
         adapter: DateTimePickerAdapter(
           customColumnType: [6, 7, 4],
@@ -689,11 +655,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: Alignment.center,
                 width: 100,
                 padding: EdgeInsets.fromLTRB(12, 0, 8, 0),
-                child: Text('Start',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                        fontSize: 14)),
+                child: Text('Start', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 14)),
                 // color: Colors.white,
               )),
         ],
@@ -712,8 +674,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return true;
         },
         onConfirm: (picker, selected) {
-          showMsg(
-              "Start: ${range[0].toString()}, End: ${range[1].toString()}, ${picker.adapter}");
+          showMsg("Start: ${range[0].toString()}, End: ${range[1].toString()}, ${picker.adapter}");
         });
     final p2 = Picker(
         adapter: DateTimePickerAdapter(
@@ -728,11 +689,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.fromLTRB(12, 0, 8, 0),
                 width: 100,
-                child: Text('End',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                        fontSize: 14)),
+                child: Text('End', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 14)),
                 // color: Colors.white,
               )),
         ],

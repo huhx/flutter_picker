@@ -27,20 +27,14 @@ class PickerLocalizations extends PickerLocalizationsBase {
   }
 
   static PickerLocalizations of(BuildContext context) {
-    return Localizations.of<PickerLocalizations>(
-            context, PickerLocalizations) ??
-        _static;
+    return Localizations.of<PickerLocalizations>(context, PickerLocalizations) ?? _static;
   }
 
   /// 注册自定义语言
   ///
   /// Register custom language
   static registerCustomLanguage(String name,
-      {String? cancelText,
-      String? confirmText,
-      List<String>? ampm,
-      List<String>? months,
-      List<String>? monthsLong}) {
+      {String? cancelText, String? confirmText, List<String>? ampm, List<String>? months, List<String>? monthsLong}) {
     if (name.isEmpty) return;
     if (ampm != null && ampm.length != 2) {
       throw Exception('ampm array length must be 2');
@@ -70,18 +64,7 @@ class PickerLocalizations extends PickerLocalizationsBase {
   }
 
   /// Language Support
-  static const List<String> languages = [
-    'en',
-    'ja',
-    'zh',
-    'ko',
-    'it',
-    'ar',
-    'fr',
-    'es',
-    'tr',
-    'ro'
-  ];
+  static const List<String> languages = ['en', 'ja', 'zh', 'ko', 'it', 'ar', 'fr', 'es', 'tr', 'ro'];
 
   /// Language Values
   static const Map<String, Map<String, Object>> localizedValues = {
@@ -129,20 +112,7 @@ class PickerLocalizations extends PickerLocalizationsBase {
       'cancelText': 'İptal',
       'confirmText': 'Onay',
       'ampm': ['ÖÖ', 'ÖS'],
-      'months': [
-        'Oca',
-        'Şub',
-        'Mar',
-        'Nis',
-        'May',
-        'Haz',
-        'Tem',
-        'Ağu',
-        'Eyl',
-        'Eki',
-        'Kas',
-        'Ara'
-      ],
+      'months': ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
       'monthsLong': [
         'Ocak',
         'Şubat',

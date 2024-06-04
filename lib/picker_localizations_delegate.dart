@@ -4,21 +4,17 @@ import 'dart:async';
 import 'picker_localizations.dart';
 
 /// picker localizations
-class PickerLocalizationsDelegate
-    extends LocalizationsDelegate<PickerLocalizations> {
+class PickerLocalizationsDelegate extends LocalizationsDelegate<PickerLocalizations> {
   const PickerLocalizationsDelegate();
 
-  static const PickerLocalizationsDelegate delegate =
-      const PickerLocalizationsDelegate();
+  static const PickerLocalizationsDelegate delegate = const PickerLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) =>
-      PickerLocalizations.languages.contains(locale.languageCode);
+  bool isSupported(Locale locale) => PickerLocalizations.languages.contains(locale.languageCode);
 
   @override
   Future<PickerLocalizations> load(Locale locale) {
-    return SynchronousFuture<PickerLocalizations>(
-        new PickerLocalizations(locale));
+    return SynchronousFuture<PickerLocalizations>(new PickerLocalizations(locale));
   }
 
   @override
